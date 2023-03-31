@@ -16,7 +16,7 @@ resource "aws_default_security_group" "this" {
 }
 
 resource "aws_subnet" "private" {
-  count = var.private_subnet ? 1 : 0
+  count = var.create_private_subnet ? 1 : 0
 
   vpc_id            = aws_vpc.this.id
   cidr_block        = cidrsubnet(aws_vpc.this.cidr_block, 1, 0)
@@ -26,7 +26,7 @@ resource "aws_subnet" "private" {
 }
 
 resource "aws_subnet" "public" {
-  count = var.public_subnet ? 1 : 0
+  count = var.create_public_subnet ? 1 : 0
 
   vpc_id            = aws_vpc.this.id
   cidr_block        = cidrsubnet(aws_vpc.this.cidr_block, 1, 1)
