@@ -1,3 +1,10 @@
+variable "cidr" {
+  description = "VPC IP address range"
+  type        = string
+  default     = "10.0.0.0/16"
+  nullable    = false
+}
+
 variable "enable_dns_hostnames" {
   description = "Should be true to enable DNS hostnames in the VPC"
   type        = bool
